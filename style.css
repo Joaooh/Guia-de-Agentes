@@ -1,0 +1,397 @@
+@font-face {
+  font-family: 'Tungsten-Bold';
+  src: url('./fonts/Tungsten-Bold.ttf') format('truetype');
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  background-color: #111823;
+  color: #ece8e1;
+  display: flex; /* Mantém o body como flex container para o main-layout-wrapper */
+  justify-content: flex-start; /* GARANTE ALINHAMENTO À ESQUERDA DA PÁGINA */
+}
+
+/* Contêiner principal para o layout de duas colunas */
+.main-layout-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Permite que os itens se estiquem verticalmente */
+    max-width: 1400px; /* Largura máxima para todo o conteúdo do site */
+    width: 100%;
+    gap: 30px; /* Espaço entre as duas colunas (esquerda e direita) */
+    padding: 20px; /* Padding geral para o conteúdo principal */
+    box-sizing: border-box;
+    margin-left: 0; /* Alinha o wrapper à esquerda */
+    margin-right: auto; /* Permite margem automática à direita */
+}
+
+/* Coluna da Esquerda (todo o conteúdo existente) */
+.main-content-left {
+    flex-grow: 1; /* Permite que cresça para ocupar espaço */
+    flex-shrink: 1; /* Permite que encolha */
+    flex-basis: 0; /* Base flexível para cálculo de largura */
+    min-width: 450px; /* Largura mínima para a coluna da esquerda */
+    max-width: 900px; /* Limita a largura da coluna da esquerda */
+}
+
+h1 {
+  font-family: 'Tungsten-Bold', sans-serif;
+  font-size: 45px;
+  text-align: left; /* H1 AGORA SEMPRE ALINHADO À ESQUERDA */
+  color: #ece8e1;
+  margin-bottom: 30px;
+  max-width: 100%; /* Garante que não tenha largura fixa para alinhamento */
+  margin-left: 0;
+  margin-right: 0;
+}
+
+p {
+    margin-bottom: 20px;
+    text-align: left;
+    max-width: 900px; /* Mantém a largura máxima para os parágrafos */
+    margin-left: 0;
+    margin-right: auto;
+}
+
+/* Estilos para a tabela de resumo de categorias (a "tabela escura") */
+.valorant-roles-table {
+  font-family: 'Roboto', sans-serif;
+  width: 100%; /* Ocupa a largura do main-content-left */
+  max-width: 900px; /* AJUSTADO: Mesmo limite do conteúdo textual (p) */
+  border-collapse: collapse;
+  margin: 20px auto 20px 0; /* Alinha à esquerda dentro da coluna */
+  color: #ece8e1;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  font-size: 0.9em;
+}
+
+.valorant-roles-table th,
+.valorant-roles-table td {
+  border: 1px solid #333;
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.95em;
+}
+
+.valorant-roles-table th {
+  background-color: #222;
+  font-weight: bold;
+  color: #ece8e1;
+  white-space: nowrap;
+}
+
+.valorant-roles-table td:last-child {
+  line-height: 1.4;
+}
+
+/* Wrapper para a tabela de agentes vermelha */
+.agents-list-table-wrapper {
+    width: 100%; /* Ocupa a largura total do main-content-left */
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+/* Estilos para a tabela de agentes (a "tabela vermelha") */
+.agents-list-table {
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  flex: 1; /* Permite crescer e encolher igualmente */
+  min-width: 480px; /* Mantém a largura mínima */
+  max-width: 900px; /* AJUSTADO: Mesma largura que a tabela escura e o texto */
+  border-collapse: collapse;
+  margin: 0;
+  color: #ece8e1;
+}
+
+.agents-list-table th,
+.agents-list-table td {
+  border: 1px solid #ff4654;
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+}
+.agents-list-table th {
+  background-color: #ff4654;
+  font-weight: bold;
+}
+
+td ul li a {
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+
+ul {
+  margin: 0;
+}
+
+td ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 4px;
+}
+
+li a {
+  color: #ece8e1;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+li a:hover {
+  color: #ba3a46;
+  text-decoration: underline;
+}
+
+
+/* --- Estilos para a seção de Habilidades Especiais (COLUNA DA DIREITA) --- */
+#abilitiesSection {
+    display: none; /* ESCONDE INICIALMENTE */
+    visibility: hidden; /* Ocultação forte */
+    opacity: 0;      /* Ocultação forte */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transição suave */
+
+    flex-shrink: 0;
+    width: 450px;
+    min-height: 750px; /* Valor base de altura para a sidebar */
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 20px; /* Padding geral da seção */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    text-align: center; /* Centraliza textos inline/inline-block */
+    box-sizing: border-box;
+
+    align-self: stretch; /* Permite que estique verticalmente */
+
+    /* PROPRIEDADES FLEXBOX PARA ALINHAMENTO INTERNO */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza os filhos verticalmente */
+    align-items: center; /* Centraliza os filhos horizontalmente */
+}
+
+/* NOVOS ESTILOS PARA DESCRIÇÃO DO AGENTE E FUNÇÃO */
+.agent-description {
+    font-size: 0.95em; /* Tamanho da fonte para a descrição do agente */
+    line-height: 1.5;
+    margin-bottom: 20px; /* Espaço abaixo da descrição */
+    padding: 0 10px; /* Padding lateral */
+    text-align: center;
+    color: #b0b0b0; /* Cor um pouco mais clara */
+}
+
+.agent-role-info {
+    display: flex; /* Para alinhar o ícone e o texto da função */
+    align-items: center; /* Alinha verticalmente o ícone e o texto */
+    justify-content: center; /* Centraliza o bloco de função */
+    gap: 8px; /* Espaço entre o ícone e o texto */
+    margin-bottom: 25px; /* Espaço abaixo do bloco de função */
+    color: #ff4654; /* Cor para o texto da função */
+    font-weight: bold;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+}
+
+.agent-role-icon {
+    width: 30px; /* Tamanho do ícone da função */
+    height: 30px;
+    object-fit: contain;
+}
+
+.abilities-header {
+    color: #ece8e1;
+    font-family: 'Tungsten-Bold', sans-serif;
+    font-size: 35px;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.ability-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.ability-button {
+    background-color: #2b2b2b;
+    border: 2px solid #555;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.ability-button img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.ability-button:hover {
+    background-color: #3a3a3a;
+    border-color: #ff4654;
+    transform: translateY(-3px);
+}
+
+.ability-button.active {
+    background-color: #ff4654;
+    border-color: #ff4654;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 70, 84, 0.6);
+}
+
+.video-display-wrapper {
+    width: 100%;
+    max-width: 400px;
+    background-color: #0d0d0d;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.actual-video-container {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 10px;
+    min-height: calc(400px / (16 / 9));
+}
+
+.ability-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+#currentAbilityName {
+    color: #ff4654;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    width: 100%;
+    display: none;
+}
+
+#currentAbilityDescription {
+    color: #ece8e1;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    padding: 0 10px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    display: none;
+    /* REMOVIDO: max-height: 150px; e overflow-y: auto; para permitir que o texto cresça */
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 1100px) {
+    .main-layout-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        padding: 20px 10px;
+    }
+    .main-content-left {
+        min-width: auto;
+        width: 100%;
+        padding-right: 0;
+        min-height: auto;
+        max-width: 100%; /* Garante que a coluna da esquerda ocupe 100% em mobile */
+    }
+    h1 {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    .valorant-roles-table {
+        margin: 20px auto;
+        max-width: 100%; /* Garante que a tabela cinza ocupe 100% em mobile */
+    }
+    #abilitiesSection {
+        width: 100%;
+        min-height: 400px; /* Mantém uma altura mínima razoável em mobile */
+        position: static;
+        top: auto;
+        margin: 0;
+        justify-content: flex-start; /* Conteúdo no topo em mobile */
+        align-items: center;
+        visibility: visible; /* Garante que esteja visível em mobile (para override do hidden) */
+        opacity: 1; /* Garante que esteja opaco em mobile */
+    }
+    .video-display-wrapper {
+        max-width: 700px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .actual-video-container {
+        min-height: calc(700px / (16 / 9));
+    }
+    .ability-button {
+        width: 70px;
+        height: 70px;
+    }
+    .ability-buttons-container {
+        gap: 25px;
+        margin-bottom: 30px;
+    }
+    #currentAbilityName {
+        font-size: 28px;
+    }
+    #currentAbilityDescription {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .abilities-header {
+        font-size: 28px;
+    }
+    .ability-button {
+        width: 60px;
+        height: 60px;
+    }
+    .ability-buttons-container {
+        gap: 15px;
+    }
+    #currentAbilityName {
+        font-size: 24px;
+    }
+    #currentAbilityDescription {
+        font-size: 14px;
+    }
+    .actual-video-container {
+        max-width: 95%;
+        min-height: calc(95vw * (9 / 16));
+    }
+}
